@@ -1,0 +1,17 @@
+# Compiled class files
+*.class
+bin/
+
+# Build output
+/out/
+/build/
+
+# IDE
+.idea/
+.classpath
+.project
+.settings/
+*.iml
+
+# OS
+.DS_Store
