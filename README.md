@@ -50,3 +50,6 @@ The levels are all hand-typed into `Board`, one `cars.add(...)` line at a time. 
 
 The bigger dream is getting it on a phone. Right now it's Swing, which does not exist on Android or iOS at all, so that's not a port, it's a rewrite. Probably the game logic — the `Car` class, the movement rules, the win check — could survive and just get a new front end on top. Touch instead of click-then-arrow-key would actually feel better on a phone anyway. Drag the car with your finger. That's the whole interaction.
 
+## Author
+
+Situ Zhao
