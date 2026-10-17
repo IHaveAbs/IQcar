@@ -22,24 +22,9 @@ Click a car to pick it. Then use the arrow keys. If the car is horizontal, left 
 
 The red car is the one you care about. Get it to the right edge and you win — a little popup tells you so. There's a restart button up top if you jam yourself into a corner, which you will. A menu button lets you pick the game and the difficulty: Easy, Medium, Hard, three boards each.
 
-## What's under the hood
-
-Straight Java with Swing and AWT. No engine, no libraries, nothing fancy.
-
-- `frame` is the window. It's the entry point with `main`, sets up the JFrame, sticks the level bar on top and the board in the middle.
-- `Board` does basically everything — draws the grid, holds the list of cars, handles mouse clicks and key presses, and hard-codes all nine levels by hand. It's a big file. I know.
-- `Car` is one vehicle. It knows its position, direction, size, color, and how to draw itself and move a step. Collision checking lives here too, in `onClick`, which just tests if a point falls inside the car's rectangle.
-- `Menu` is the popup dialog for choosing level and difficulty. Radio buttons and a combo box.
-- `Levelbar` is the top strip with the restart and level buttons.
-- `GameCons` holds the window size constants. That's it, two numbers.
-
-Everything works in a coordinate system where one grid square is 100 pixels, so the window is 600x600. Cars get placed on grid coords in the level code and multiplied up. Images (the car sprites, backgrounds) load through `ImageIO` from the resources folder.
-
-Fair warning about the code — it was written over a long time and it shows. There are variables named things like `ultrafuck` and `stupid` and a commented-out `moveRight` I couldn't bring myself to delete. Don't judge me.
-
 ## Compile and run
 
-You need a JDK installed. Java 8 or newer, since it uses lambdas. Check with:
+You need a JDK installed. Java 8 or newer, check with:
 
 ```
 java -version
@@ -65,4 +50,3 @@ The levels are all hand-typed into `Board`, one `cars.add(...)` line at a time. 
 
 The bigger dream is getting it on a phone. Right now it's Swing, which does not exist on Android or iOS at all, so that's not a port, it's a rewrite. Probably the game logic — the `Car` class, the movement rules, the win check — could survive and just get a new front end on top. Touch instead of click-then-arrow-key would actually feel better on a phone anyway. Drag the car with your finger. That's the whole interaction.
 
-Would that mean redoing the rendering in something like Android's Canvas, or going cross-platform with a framework and doing it once? Haven't decided. That's the part I actually want to build next.
